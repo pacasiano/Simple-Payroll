@@ -3,33 +3,171 @@
 <html>
     <head>
         <meta charset="utf-8">
-
-        <title>Casiano</title>
-
-        <!-- Load external CSS styles -->
+        <title>Assignment-1</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet'>
+
+        <style>
+          @font-face{
+          font-family: Montserrat_700;
+          src: url('https://fonts.googleapis.com/css2?family=Montserrat:700');
+          font-weight: 700;
+          }
+    
+          html {
+          background: black; 
+          background-size: cover;
+          }
+          
+          body {
+          background-color: black;
+          font-family: 'Montserrat';
+          }
+          
+          .container {
+          margin: auto;
+          width: 45%;
+          border: 5px;
+          padding: 20px;
+          }
+          
+          .top-left {
+          position: absolute;
+          top: 8px;
+          left: 16px;
+          }
+    
+          .bottomleft {
+            position: absolute;
+            bottom: 8px;
+          right: 16px;
+          }	
+          
+          #main {
+          transition: margin-left .5s;
+          padding: 16px;
+          }
+    
+          @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+          }
+          
+          .sidenav {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #111;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+          }
+    
+          .sidenav a {
+          padding: 8px 8px 8px 8px;
+          text-decoration: none;
+          font-size: 18px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+          }
+    
+          .sidenav a:hover {
+          color: #ffffff;
+          }
+    
+          .sidenav hr {
+          width: 80%;
+          margin-top: 10px;
+          margin-left: 0;
+          }
+          
+          .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+          }
+          
+          h3, p {
+          color: white;
+          text-align: left;
+          }
+
+          span {
+          color: white;
+          }
+          
+          a {
+          font-weight: bolder;
+          font-size: 14px;
+          padding-left: 25%;
+          padding-right: 25%;
+                }
+          
+          p.subtitle {
+          font-size: 26px;
+          font-weight: 800;
+          display: block;
+          text-align: center;
+          }
+          
+          p.main {
+          font-size: 20px;
+          font-weight: 800;
+          }
+          
+          hr {
+          height: 10%;
+          background-color: white;
+          border: 10;
+          }
+    
+          div > img {
+          width: auto;
+          height: auto;
+          max-height: 100%;
+          max-width: 100%;
+          }
+
+          div.gitna {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+    
+        </style>
     </head>
 
     <body>
 
-        <h1 style="color:white;">Computer Programming on Java and HTML</h1>
-
+      <div class="container">
+        <img src='picsf.png'>
+        <p class="subtitle">Simple Computations</p>
+        <hr>
+      </div>
+  
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="https://pacasiano.github.io/Simple-Computations/">Simple Computations</a>
-            <a href="#">other</a>
-            <a href="#">other</a>
-            <a href="#">other</a>
-          </div>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <a>Navigation<br><hr></a>
+          <a href="https://pacasiano.github.io/casiano/">Home</a>
+          <a href="https://pacasiano.github.io/Simple-Computations/">About</a><br>
+          <a>Assignments<br><hr></a>
+          <a href="https://pacasiano.github.io/Simple-Computations/">Simple Computations</a>
+          <a href="#">Income Tax Calculator</a>
+          <a href="#">Factorial sum of N Natural Numbers</a>
+          <a href="#">Simple Payroll</a>
+		    </div>
           
-          <div id="main">
-            <h2 style="color:white;">Press to Navigate</h2>
-            <span style="font-size:30px;cursor:pointer; color:white" class="top-left" onclick="openNav()">&#9776; Open</span>
-            <p style="color:white;">The inclusion in this Website is Peter Andre Casiano's works on Java and Html.</p>
-          </div>
+        <div id="main">
+          <span style="font-size:30px;cursor:pointer; color:white" class="top-left" onclick="openNav()">&#9776;</span>
+        </div>
           
-          <script>
+        <script>
           function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
             document.getElementById("main").style.marginLeft = "250px";
@@ -39,122 +177,44 @@
             document.getElementById("mySidenav").style.width = "0";
             document.getElementById("main").style.marginLeft= "0";
           }
-          </script>
+        </script>
 
+        <div class='gitna'>
+        <h3>Income Tax Calculator Program</h3>
+            <input type="number" id="one">
+            <button onclick='convertTax'>Convert</button>
+            <p> Taxable Income:</p>
+            <textarea id="num0" readonly></textarea>
+            <p> Income Tax: </p>
+            <textarea id="num1" readonly></textarea>
 
-<style>
-
-html {    
-    background: url('pics2.png') no-repeat center fixed;     
-    background-size: cover;
-}
-
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-
-h1 {
-    text-align: center;
-    font-family: 'gotham';
-    font-weight: bolder;
-    font-size: 45px;
-}
-
-a, h2, p {
-  font-family: 'Arvo';
-}
-
-button {
-    font-family: 'Arvo';
-    font-weight: normal;
-}
-
-p.important { 
-    color:white;
-}
-
-.dropbtn {
-  background-color: burlywood;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-.dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: burlywood;}
-
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
+        <script>
+            function convertTax() {
+            var BeforeTax = document.getElementById("one").value;
+            var Final = document.getElementById("one").value;
+            if (BeforeTax <= 250000){
+              let IncomeTax = 0;
+            }
+            else if (BeforeTax <= 400000 && BeforeTax >= 250000){
+              var IncomeTax = (BeforeTax-250000)*0.20;
+            }
+            else if (BeforeTax <= 800000 && BeforeTax >= 400000){
+              var IncomeTax = ((BeforeTax-400000)*0.25)+30000;
+            }
+            else if (BeforeTax <= 2000000 && BeforeTax >= 800000){
+              var IncomeTax = ((BeforeTax-800000)*0.30)+130000;
+            }
+            else if (BeforeTax <= 8000000 && BeforeTax >= 2000000){
+              var IncomeTax = ((BeforeTax-2000000)*0.32)+490000;
+            }
+            else if (BeforeTax >= 8000000){
+              var IncomeTax = ((BeforeTax-8000000)*0.35)+2410000;
+            }
+            document.getElementById("num0").innerHTML = Final;
+            document.getElementById("num1").value=math.round = IncomeTax;
+              }
+        </script>
+        </div>
         
     </body>
 
