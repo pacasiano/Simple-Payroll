@@ -181,38 +181,36 @@
 
         <div class='gitna'>
         <h3>Income Tax Calculator Program</h3>
-            <input type="number" id="one">
-            <button onclick='convertTax'>Convert</button>
-            <p> Taxable Income:</p>
-            <textarea id="num0" readonly></textarea>
+            <input type="text" id="one" onkeyup="convertTax()" onkeydown="convertTax()">
             <p> Income Tax: </p>
             <textarea id="num1" readonly></textarea>
 
         <script>
             function convertTax() {
-            var BeforeTax = document.getElementById("one").value;
-            var Final = document.getElementById("one").value;
-            if (BeforeTax <= 250000){
-              let IncomeTax = 0;
+            let i = document.getElementById("one").value;
+            let income;
+
+            if (i <= 250000){
+              let Income = 123123123123;
             }
-            else if (BeforeTax <= 400000 && BeforeTax >= 250000){
-              var IncomeTax = (BeforeTax-250000)*0.20;
+            else if(i <= 400000 && i > 250000){
+              let Income = ((i-250000)*0.20);
             }
-            else if (BeforeTax <= 800000 && BeforeTax >= 400000){
-              var IncomeTax = ((BeforeTax-400000)*0.25)+30000;
+            else if(i <= 800000 && i > 400000){
+              let Income = (((i-400000)*0.25)+30000);
             }
-            else if (BeforeTax <= 2000000 && BeforeTax >= 800000){
-              var IncomeTax = ((BeforeTax-800000)*0.30)+130000;
+            else if(i <= 2000000 && i > 800000){
+              let Income = (((i-800000)*0.30)+130000);
             }
-            else if (BeforeTax <= 8000000 && BeforeTax >= 2000000){
-              var IncomeTax = ((BeforeTax-2000000)*0.32)+490000;
+            else if(i <= 8000000 && i > 2000000){
+              let Income = (((i-2000000)*0.32)+490000);
             }
-            else if (BeforeTax >= 8000000){
-              var IncomeTax = ((BeforeTax-8000000)*0.35)+2410000;
+            else{
+              let Income = (((i-8000000)*0.35)+2410000);
             }
-            document.getElementById("num0").innerHTML = Final;
-            document.getElementById("num1").value=math.round = IncomeTax;
-              }
+            document.getElementById("num1").innerHTML = Tax;
+            return Income;
+            }
         </script>
         </div>
         
