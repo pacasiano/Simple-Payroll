@@ -96,6 +96,7 @@
           h3, p {
           color: white;
           text-align: left;
+          font-family: 'Montserrat';
           }
 
           span {
@@ -147,7 +148,7 @@
 
       <div class="container">
         <img src='picsf.png'>
-        <p class="subtitle">Simple Computations</p>
+        <p class="subtitle">Income Tax Calculator</p>
         <hr>
       </div>
   
@@ -158,7 +159,7 @@
           <a href="https://pacasiano.github.io/Simple-Computations/">About</a><br>
           <a>Assignments<br><hr></a>
           <a href="https://pacasiano.github.io/Simple-Computations/">Simple Computations</a>
-          <a href="#">Income Tax Calculator</a>
+          <a href="https://pacasiano.github.io/Income-Tax-Calculator/">Income Tax Calculator</a>
           <a href="#">Factorial sum of N Natural Numbers</a>
           <a href="#">Simple Payroll</a>
 		    </div>
@@ -178,38 +179,45 @@
             document.getElementById("main").style.marginLeft= "0";
           }
         </script>
-
-        <div class='gitna'>
-        <h3>Income Tax Calculator Program</h3>
-            <input type="text" id="one" onkeyup="convertTax()" onkeydown="convertTax()">
-            <p> Income Tax: </p>
-            <textarea id="num1" readonly></textarea>
+          <div class='gitna'>
+            <p style="padding-right: 95px;"> Income Before Tax: </p>
+            <p style="padding-right: 35px;"> Income Tax: </p>
+          </div>
+              <div class='gitna'>
+                <input type="text" id="one" onkeyup="convertTax()" onkeydown="convertTax()">
+                <p style="padding-right: 50px;"></p>
+                <textarea id="num1" readonly></textarea>
+              </div>
 
         <script>
             function convertTax() {
-            let i = document.getElementById("one").value;
-            let income;
+
+            var i, Income;
+
+            i = document.getElementById("one").value*1;
+
+            console.log(i);
+            console.log(Income);
 
             if (i <= 250000){
-              let Income = 123123123123;
+              Income = 0;
             }
             else if(i <= 400000 && i > 250000){
-              let Income = ((i-250000)*0.20);
+              Income = ((i-250000)*0.20);
             }
             else if(i <= 800000 && i > 400000){
-              let Income = (((i-400000)*0.25)+30000);
+              Income = (((i-400000)*0.25)+30000);
             }
             else if(i <= 2000000 && i > 800000){
-              let Income = (((i-800000)*0.30)+130000);
+              Income = (((i-800000)*0.30)+130000);
             }
             else if(i <= 8000000 && i > 2000000){
-              let Income = (((i-2000000)*0.32)+490000);
+              Income = (((i-2000000)*0.32)+490000);
             }
             else{
-              let Income = (((i-8000000)*0.35)+2410000);
+              Income = (((i-8000000)*0.35)+2410000);
             }
-            document.getElementById("num1").innerHTML = Tax;
-            return Income;
+            document.getElementById("num1").innerHTML = Income;
             }
         </script>
         </div>
