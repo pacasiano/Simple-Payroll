@@ -147,6 +147,7 @@
         <hr>
       </div>
   
+      <!--Navigation-->
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a>Navigation<br><hr></a>
@@ -174,46 +175,77 @@
             document.getElementById("main").style.marginLeft= "0";
           }
         </script>
+
+        <!--Nth Factorial Sum and Average-->
           <div class='gitna'>
-            <p style="padding-right: 95px;"> Income Before Tax: </p>
-            <p style="padding-right: 35px;"> Income Tax: </p>
+            <p style="padding-right: 150px;"> The N number: </p>
+            <p style="padding-right: 30px;"> n!: </p>
           </div>
+
               <div class='gitna'>
-                <input type="text" id="one" onkeyup="convertTax()" onkeydown="convertTax()">
+                <input type="text" id="one">
+                <button onclick="Nth()">Calculate</button>
                 <p style="padding-right: 50px;"></p>
-                <textarea id="num1" readonly></textarea>
+                <textarea id="num1" readonly placeholder="n!"></textarea>
               </div>
 
+          <div class='gitna'>
+            <p style="padding-right: 150px;"> Numbers: </p>
+            <p style="padding-right: 30px;"> Sum of numbers: </p>
+          </div>
+    
+                  <div class='gitna'>
+                    <input type="text" id="two">
+                    <button onclick="Add()">Add</button>
+                    <button onclick="Sum()">Calculate</button>
+                    <p style="padding-right: 50px;"></p>
+                    <textarea id="num2" readonly placeholder="Sum"></textarea>
+                  </div>
+    
+        <!--CODE FOR ALL-->
         <script>
-            function convertTax() {
+          //Nth Factorial
+            function Nth() {
 
-            var i, Income;
+            var i, Income=1, k=1, counter;
 
             i = document.getElementById("one").value*1;
 
-            console.log(i);
-            console.log(Income);
+            while (k <= i){
+            Income*=k;
+            k++;
+            }
 
-            if (i <= 250000){
-              Income = 0;
-            }
-            else if(i <= 400000 && i > 250000){
-              Income = ((i-250000)*0.20);
-            }
-            else if(i <= 800000 && i > 400000){
-              Income = (((i-400000)*0.25)+30000);
-            }
-            else if(i <= 2000000 && i > 800000){
-              Income = (((i-800000)*0.30)+130000);
-            }
-            else if(i <= 8000000 && i > 2000000){
-              Income = (((i-2000000)*0.32)+490000);
-            }
-            else{
-              Income = (((i-8000000)*0.35)+2410000);
-            }
             document.getElementById("num1").innerHTML = Income;
             }
+
+          //Sum and Text-input remover
+      
+          function Add() {
+            var h;
+
+            h = document.getElementById("two").value*1;
+            
+            store[j] = h;
+            j++;
+
+            document.getElementById('two').value = "";
+          }
+           // the code for sum
+          function Sum() {
+            var t=1, SumOfAll=0;
+           
+            do {
+            SumOfAll+=store[t];
+            t++;
+            } while (t <= store[j]);
+
+            document.getElementById("num2").innerHTML = SumOfAll;
+            }
+
+            var store = []
+            var j=1;
+
         </script>
         </div>
         
