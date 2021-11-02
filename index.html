@@ -190,14 +190,14 @@
               </div>
 
           <div class='gitna'>
-            <p style="padding-right: 150px;"> Numbers: </p>
-            <p style="padding-right: 30px;"> Sum of numbers: </p>
+            <p style="padding-right: 240px;"> Numbers: </p>
+            <p style="padding-right: 0px;"> Sum of numbers: </p>
           </div>
     
                   <div class='gitna'>
                     <input type="text" id="two">
                     <button onclick="Add()">Add</button>
-                    <button onclick="Sum()">Calculate</button>
+                    <button onclick="Show()">Show</button>
                     <p style="padding-right: 50px;"></p>
                     <textarea id="num2" readonly placeholder="Sum"></textarea>
                   </div>
@@ -220,32 +220,23 @@
             }
 
           //Sum and Text-input remover
-      
+          var SumOfAll=0;
+
           function Add() {
             var h;
 
             h = document.getElementById("two").value*1;
             
-            store[j] = h;
-            j++;
-
+            SumOfAll+=h;
+            
             document.getElementById('two').value = "";
           }
            // the code for sum
-          function Sum() {
-            var t=1, SumOfAll=0;
+          function Show() {
+          document.getElementById("num2").innerHTML = SumOfAll;
+          SumOfAll=0;
+          }
            
-            do {
-            SumOfAll+=store[t];
-            t++;
-            } while (t <= store[j]);
-
-            document.getElementById("num2").innerHTML = SumOfAll;
-            }
-
-            var store = []
-            var j=1;
-
         </script>
         </div>
         
