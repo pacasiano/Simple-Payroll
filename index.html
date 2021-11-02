@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Assignment-2</title>
+        <title>Assignment-4</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://fonts.google.com/specimen/Montserrat' rel='stylesheet'>
 
@@ -135,6 +135,11 @@
             justify-content: center;
             align-items: center;
           }
+
+          table, th, td {
+          border:1px solid white;
+          color: white;
+          }
     
         </style>
     </head>
@@ -178,95 +183,125 @@
 
         <!--Nth Factorial-->
           <div class='gitna'>
-            <p style="padding-right: 150px;"> The N number: </p>
-            <p style="padding-right: 30px;"> n!: </p>
+            <p style="padding-right: 150px;"> Employee name: </p>
+            <p style="padding-right: 150px;"> Days worked: </p>
+            <p style="padding-right: 150px;"> Daily rate: </p>
+            <p style="padding-right: 150px;"> Deduction Amount: </p>
           </div>
 
               <div class='gitna'>
                 <input type="text" id="one">
-                <button onclick="Nth()">Calculate</button>
+                <input type="text" id="two">
+                <input type="text" id="thre">
+                <input type="text" id="four">
+                <button onclick="Add()">Add</button>
                 <p style="padding-right: 50px;"></p>
                 <textarea id="num1" readonly placeholder="n!"></textarea>
               </div>
 
-          <!--Sum of the First N numbers-->
-          <div class='gitna'>
-            <p style="padding-left: 50px;"> Numbers: </p>
-            <p style="padding-left: 170px;"> Sum of numbers: </p>
-          </div>
-    
-                  <div class='gitna'>
-                    <input type="text" id="two">
-                    <button onclick="sum()">Sum</button>
-                    <p style="padding-right: 80px;"></p>
-                    <textarea id="num2" readonly placeholder="Sum"></textarea>
-                  </div>
+              
+              <div class='gitna' style="padding-top: 50px;">
+              <table style="width:100%; " >
+                <tr>
+                  <th>No.</th>
+                  <th>Employee Name</th>
+                  <th>Days Worked</th>
+                  <th>Daily Rate</th>
+                  <th>Gross Pay</th>
+                  <th>Deduction Amount</th>
+                  <th>Net Pay</th>
+                </tr>
 
-          <!--Average of the First N numbers-->
-          <div class='gitna'>
-            <p style="padding-left: 50px;"> Numbers: </p>
-            <p style="padding-left: 170px;"> Average of numbers: </p>
-          </div>
-    
-                  <div class='gitna'>
-                    <input type="text" id="three">
-                    <button onclick="ave()">Average</button>
-                    <p style="padding-right: 55px;"></p>
-                    <textarea id="num3" readonly placeholder="Average"></textarea>
-                  </div>
+                <tr>
+                  <th id='num1'></th>
+                  <th id='num2'></th>
+                  <th id='num3'></th>
+                  <th id='num4'></th>
+                  <th id='num5'></th>
+                  <th id='num6'></th>
+                  <th id='num7'></th>
+                </tr>
+              </div>
 
-    
+              
+  
         <!--CODE FOR ALL-->
         <script>
-          //Nth Factorial
-            function Nth() {
 
-            var i, Income=1, k=1, counter;
+          //N
+          var num;
+            function Add() {
 
-            i = document.getElementById("one").value*1;
+            var daysworked = document.getElementById("one").value*1;
+            var dailyrate = document.getElementById("one").value*1;
+            var deduction = document.getElementById("one").value*1;
 
-            while (k <= i){
-            Income*=k;
-            k++;
+            var grosspay = daysworked*dailyrate;
+            var netpay = grosspay-deduction;
+
+            document.getElementById("num1").innerHTML = NumberOfEmployee();
+            document.getElementById("num2").innerHTML = EmployeeName;
+            document.getElementById("num3").innerHTML = daysworked;
+            document.getElementById("num4").innerHTML = dailyrate;
+            document.getElementById("num5").innerHTML = grosspay;
+            document.getElementById("num6").innerHTML = deduction;
+            document.getElementById("num6").innerHTML = netpay;
+
             }
 
-            document.getElementById("num1").innerHTML = Income;
-            }
+            var netpay, grosspay;
 
-          //Sum
+    // Add item to cart
+    function add(){
+         
+         var payroll = {
+              "EmployeeName": "1",
+              "DaysWorked": 0,
+              "DailyRate": 0,
+              "GrossPay": grossPay(),
+              "DeductionAmount" : 0,
+              "NetPay": netPay(),
+            };
 
-          function sum() {
-            var h=0, y=0, basis=0, sum=0;
+          payroll.EmployeeName = document.getElementById("one").value;
+          Payroll.DaysWorked = document.getElementById("two").value;
+          payroll.DailyRate = document.getElementById("thre").value;
+          payroll.DeductionAmount = document.getElementById("four").value;
 
-            h = document.getElementById("two").value*1;
-            basis = h;
+          console.log(payroll.EmployeeName);
+          console.log(Payroll.DaysWorked);
+          console.log(payroll.DailyRate);
+          console.log(payroll.DeductionAmount);
 
-            do {
-            h = h + y;
-            y++;
-            } while (y < basis);
 
-            document.getElementById('num2').value = h*1;
-          }
+           cart.push(cartitem);
+          //cart[cart.length]=cartitem;
 
-          //Average
-          function ave() {
-            var h=0, y=0, basis=0, sum=0;
+          console.log(cart.length);
+          document.getElementById("items").value=cart.length;
 
-            h = document.getElementById("three").value*1;
-            basis = h;
+          showcart();
 
-            do {
-            h = h + y;
-            y++;
-            } while (y < basis);
+    }
 
-            let aveg = h/basis;
+    function grossPay(){
 
-            document.getElementById('num3').value = aveg;
-          }
+      var daysworked = document.getElementById("one").value*1;
+      var dailyrate = document.getElementById("one").value*1;
 
-           
+      var grosspay = daysworked*dailyrate;
+
+      
+    }
+
+    function netPay(){
+
+      var deduction = document.getElementById("one").value*1;
+
+      var netpay = grosspay-deduction;
+
+    }
+
         </script>
         </div>
         
