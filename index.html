@@ -156,8 +156,8 @@
           <a>Assignments<br><hr></a>
           <a href="https://pacasiano.github.io/Simple-Computations/">Simple Computations</a>
           <a href="https://pacasiano.github.io/Income-Tax-Calculator/">Income Tax Calculator</a>
-          <a href="#">Factorial sum of N Natural Numbers</a>
-          <a href="#">Simple Payroll</a>
+          <a href="https://pacasiano.github.io/Nth-Factorial-Sum-and-Average/">Factorial sum of N Natural Numbers</a>
+          <a href="https://pacasiano.github.io/Simple Payroll/">Simple Payroll</a>
 		    </div>
           
         <div id="main">
@@ -176,7 +176,7 @@
           }
         </script>
 
-        <!--Nth Factorial Sum and Average-->
+        <!--Nth Factorial-->
           <div class='gitna'>
             <p style="padding-right: 150px;"> The N number: </p>
             <p style="padding-right: 30px;"> n!: </p>
@@ -189,18 +189,32 @@
                 <textarea id="num1" readonly placeholder="n!"></textarea>
               </div>
 
+          <!--Sum of the First N numbers-->
           <div class='gitna'>
-            <p style="padding-right: 240px;"> Numbers: </p>
-            <p style="padding-right: 0px;"> Sum of numbers: </p>
+            <p style="padding-left: 50px;"> Numbers: </p>
+            <p style="padding-left: 170px;"> Sum of numbers: </p>
           </div>
     
                   <div class='gitna'>
                     <input type="text" id="two">
-                    <button onclick="Add()">Add</button>
-                    <button onclick="Show()">Show</button>
-                    <p style="padding-right: 50px;"></p>
+                    <button onclick="sum()">Sum</button>
+                    <p style="padding-right: 80px;"></p>
                     <textarea id="num2" readonly placeholder="Sum"></textarea>
                   </div>
+
+          <!--Average of the First N numbers-->
+          <div class='gitna'>
+            <p style="padding-left: 50px;"> Numbers: </p>
+            <p style="padding-left: 170px;"> Average of numbers: </p>
+          </div>
+    
+                  <div class='gitna'>
+                    <input type="text" id="three">
+                    <button onclick="ave()">Average</button>
+                    <p style="padding-right: 55px;"></p>
+                    <textarea id="num3" readonly placeholder="Average"></textarea>
+                  </div>
+
     
         <!--CODE FOR ALL-->
         <script>
@@ -219,23 +233,39 @@
             document.getElementById("num1").innerHTML = Income;
             }
 
-          //Sum and Text-input remover
-          var SumOfAll=0;
+          //Sum
 
-          function Add() {
-            var h;
+          function sum() {
+            var h=0, y=0, basis=0, sum=0;
 
             h = document.getElementById("two").value*1;
-            
-            SumOfAll+=h;
-            
-            document.getElementById('two').value = "";
+            basis = h;
+
+            do {
+            h = h + y;
+            y++;
+            } while (y < basis);
+
+            document.getElementById('num2').value = h*1;
           }
-           // the code for sum
-          function Show() {
-          document.getElementById("num2").innerHTML = SumOfAll;
-          SumOfAll=0;
+
+          //Average
+          function ave() {
+            var h=0, y=0, basis=0, sum=0;
+
+            h = document.getElementById("three").value*1;
+            basis = h;
+
+            do {
+            h = h + y;
+            y++;
+            } while (y < basis);
+
+            let aveg = h/basis;
+
+            document.getElementById('num3').value = aveg;
           }
+
            
         </script>
         </div>
