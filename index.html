@@ -88,7 +88,7 @@
           margin-left: 50px;
           }
           
-          h3, p {
+          h3, p, label {
           color: white;
           text-align: left;
           font-family: 'Montserrat';
@@ -136,10 +136,29 @@
             align-items: center;
           }
 
-          table, th, td {
+          #PAYROLL td, #PAYROLL th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #PAYROLL tr:nth-child(even){background-color: black;}
+        #PAYROLL tr:nth-child(odd){background-color: black;}
+             
+        
+        #PAYROLL th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: black;
+          color: white;
+        }
+
+          table, td, tr {
           border:1px solid white;
           color: white;
           }
+
+          
     
         </style>
     </head>
@@ -148,7 +167,7 @@
 
       <div class="container">
         <img src='picsf.png'>
-        <p class="subtitle">Income Tax Calculator</p>
+        <p class="subtitle">Simple Payroll</p>
         <hr>
       </div>
   
@@ -181,81 +200,55 @@
           }
         </script>
 
-        <!--Nth Factorial-->
           <div class='gitna'>
-            <p style="padding-right: 150px;"> Employee name: </p>
-            <p style="padding-right: 150px;"> Days worked: </p>
-            <p style="padding-right: 150px;"> Daily rate: </p>
-            <p style="padding-right: 150px;"> Deduction Amount: </p>
+            <!--Input Names-->
+            <p style="padding-right: 55px;"> Employee name: </p>
+            <p style="padding-right: 75px;"> Days worked: </p>
+            <p style="padding-right: 65px;"> Daily rate: </p>
+            <p style="padding-right: 30px;"> Deduction Amount: </p>
           </div>
 
               <div class='gitna'>
+                <!--User Input-->
                 <input type="text" id="one">
                 <input type="text" id="two">
                 <input type="text" id="thre">
                 <input type="text" id="four">
                 <button onclick="Add()">Add</button>
-                <p style="padding-right: 50px;"></p>
-                <textarea id="num1" readonly placeholder="n!"></textarea>
               </div>
 
-              
-              <div class='gitna' style="padding-top: 50px;">
-              <table style="width:100%; " >
-                <tr>
-                  <th>No.</th>
-                  <th>Employee Name</th>
-                  <th>Days Worked</th>
-                  <th>Daily Rate</th>
-                  <th>Gross Pay</th>
-                  <th>Deduction Amount</th>
-                  <th>Net Pay</th>
-                </tr>
-
-                <tr>
-                  <th id='num1'></th>
-                  <th id='num2'></th>
-                  <th id='num3'></th>
-                  <th id='num4'></th>
-                  <th id='num5'></th>
-                  <th id='num6'></th>
-                  <th id='num7'></th>
-                </tr>
+              <div class='gitna'>
+                <!--User Delete-->
+                <label style="padding-right: 10px;">Delete Item:</label>
+                <input id="delitem" name="delitem" type="number" placeholder="No."></input>
+                <button onclick="del()" >Delete</button>
+                <p style="padding-right: 60px;"></p>
+                <!--Delete All-->  
+                <label style="padding-right: 10px;">Cart List:</label>
+                <input id="items" name="items" type="number" readonly></input>
+                <button onclick="Clear()">Clear Table</button>
               </div>
 
-              
-  
+
+              <div onload="loadKol" class='gitna'>
+              <p id="PAYROLL"></p>
+              </div>
+
         <!--CODE FOR ALL-->
         <script>
 
-          //N
-          var num;
-            function Add() {
+          // Initialize List      
+    function loadKol(){
+        YEY=[];
+        document.getElementById("items").value=YEY.length;
+        document.getElementById("PAYROLL").innerHTML="";
+    }
 
-            var daysworked = document.getElementById("one").value*1;
-            var dailyrate = document.getElementById("one").value*1;
-            var deduction = document.getElementById("one").value*1;
-
-            var grosspay = daysworked*dailyrate;
-            var netpay = grosspay-deduction;
-
-            document.getElementById("num1").innerHTML = NumberOfEmployee();
-            document.getElementById("num2").innerHTML = EmployeeName;
-            document.getElementById("num3").innerHTML = daysworked;
-            document.getElementById("num4").innerHTML = dailyrate;
-            document.getElementById("num5").innerHTML = grosspay;
-            document.getElementById("num6").innerHTML = deduction;
-            document.getElementById("num6").innerHTML = netpay;
-
-            }
-
-            var netpay, grosspay;
-
-    // Add item to cart
-    function add(){
+    // Add item to Payroll
+    function Add(){
          
          var payroll = {
-              "EmployeeName": "1",
+              "EmployeeName": "name",
               "DaysWorked": 0,
               "DailyRate": 0,
               "GrossPay": grossPay(),
@@ -264,43 +257,130 @@
             };
 
           payroll.EmployeeName = document.getElementById("one").value;
-          Payroll.DaysWorked = document.getElementById("two").value;
-          payroll.DailyRate = document.getElementById("thre").value;
-          payroll.DeductionAmount = document.getElementById("four").value;
+          payroll.DaysWorked = document.getElementById("two").value*1;
+          payroll.DailyRate = document.getElementById("thre").value*1;
+          payroll.DeductionAmount = document.getElementById("four").value*1;
 
+          // Log into Console to check
           console.log(payroll.EmployeeName);
-          console.log(Payroll.DaysWorked);
+          console.log(payroll.DaysWorked);
           console.log(payroll.DailyRate);
+          console.log(payroll.GrossPay);
           console.log(payroll.DeductionAmount);
+          console.log(payroll.NetPay);
+          console.log(payroll);
 
+          
+          YEY.push(payroll);
+          length = YEY.length;
+          
+          // Log into Console to check
+          console.log(YEY);
+          console.log(length);
 
-           cart.push(cartitem);
-          //cart[cart.length]=cartitem;
+          document.getElementById("items").value=YEY.length;
 
-          console.log(cart.length);
-          document.getElementById("items").value=cart.length;
-
-          showcart();
-
+          show();
+  
     }
+    // Global Variables
+    var grosspay=0, deduction=0, netpay=0, payroll=0, length=0;
+    let YEY = [];
 
+    // Calculate Gross Pay
     function grossPay(){
 
-      var daysworked = document.getElementById("one").value*1;
-      var dailyrate = document.getElementById("one").value*1;
+      var daysworked = document.getElementById("two").value*1;
+      var dailyrate = document.getElementById("thre").value*1;
 
       var grosspay = daysworked*dailyrate;
 
-      
+      return grosspay;
     }
 
+    // Callculate Net Pay
     function netPay(){
 
-      var deduction = document.getElementById("one").value*1;
+      var deduction = document.getElementById("four").value*1;
+      var grosspay = grossPay();
 
       var netpay = grosspay-deduction;
 
+      return netpay;
     }
+
+    // Show Table
+    function show(){
+
+    var i,l, ln;
+        var theader,tbody,tb;
+    
+        // Generate table header;
+        theader ="<thead>";
+        theader+="<tr>";
+        theader+="<th>No.</th>";
+        theader+='<th>Employee Name</th>';
+        theader+="<th>Days Worked</th>";
+        theader+='<th>Daily Rate</th>';
+        theader+="<th>Gross Pay</th>";
+        theader+='<th>Deduction Amount</th>';
+        theader+="<th>Net Pay</th>";
+        theader+="</tr>";
+        theader+="</thead>";
+        
+        // Generate Table Body
+        l = YEY.length;
+  
+        for (i=0,tbody='';i<l;i++){
+            ln=i+1;    
+            tbody += "<tr>"
+                +'<td>'+ln+' </td>'
+                +'<td>'+YEY[i].EmployeeName+' </td>'
+                +'<td style="text-align:right">'+YEY[i].DaysWorked+'</td>'
+                +'<td style="text-align:right">'+YEY[i].DailyRate+'</td>'
+                +'<td style="text-align:right">'+YEY[i].GrossPay+'</td>'
+                +'<td style="text-align:right">'+YEY[i].DeductionAmount+'</td>'
+                +'<td style="text-align:right">'+YEY[i].NetPay+'</td>'
+                +"</tr>";
+  
+        console.log(theader+tbody);
+        document.getElementById("PAYROLL").innerHTML='<table>'+theader+tbody+'</table>';
+
+            }
+      }
+
+      // Delete Table Number
+      function del(){
+        var todelete;
+        var itemno;
+
+        itemno=document.getElementById("delitem").value;
+
+        todelete=confirm("Delete item no. "+itemno+"?");
+
+        if (todelete) {
+
+             YEY.splice(itemno-1,1);
+             document.getElementById("items").value=YEY.length;
+             show();   
+        }
+      }
+
+      // Clear Table
+      function Clear(){
+        var toclear;
+        let trash = [];
+
+        toclear=confirm("Delete all item(s) from the List?");
+
+        if (toclear == true) {
+            while(YEY.length > 0) {
+            YEY.pop();
+            }
+             loadKol();
+        }
+      }
+
 
         </script>
         </div>
